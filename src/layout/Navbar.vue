@@ -8,9 +8,9 @@
       <div class="nav-logo-title">DS-TASK</div>
     </div>
     <div class="nav-items">
-      <div class="nav-item">Submit</div>
+      <router-link :to="{ name: 'form' }" class="nav-item">Submit</router-link>
       <div class="divider" />
-      <div class="nav-item">Profile</div>
+      <router-link :to="{ name: 'profile' }" class="nav-item">Profile</router-link>
     </div>
   </nav>
 </template>
