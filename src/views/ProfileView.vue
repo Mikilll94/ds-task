@@ -18,7 +18,7 @@
             <DateRenderer :date="user.dateOfBirth" />
           </p>
         </div>
-        <div class="profile-info">
+        <div v-if="user.aboutInfo" class="profile-info">
           <h5>About:</h5>
           <p>
             {{ user.aboutInfo }}
