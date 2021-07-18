@@ -109,14 +109,15 @@ export default {
 </script>
 <style lang="scss" scoped>
 .root {
-  margin: 0 auto;
-  padding: 16px 16px 0 16px;
+  padding: 16px 8px 0 8px;
 
   @media (min-width: 960px) {
+    margin: 0 auto;
     width: 75%;
   }
 
   @media (min-width: 1264px) {
+    margin: 0 auto;
     width: 50%;
   }
 }

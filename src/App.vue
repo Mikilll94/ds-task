@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="page-container">
     <Navbar />
-    <router-view/>
+    <router-view />
+    <div class="spacer"></div>
+    <AppFooter />
   </div>
 </template>
 
@@ -9,10 +11,22 @@
 </style>
 <script>
 import Navbar from "@/layout/Navbar.vue";
+import AppFooter from "@/layout/AppFooter.vue";
 
 export default {
   components: {
-    Navbar
-  }
-}
+    Navbar,
+    AppFooter,
+  },
+};
 </script>
+<style lang="scss" scoped>
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.spacer {
+  margin-top: 32px;
+}
+</style>

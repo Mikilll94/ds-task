@@ -21,7 +21,7 @@ export default {};
 
 <style scoped lang="scss">
 .nav {
-  height: 64px;
+  min-height: 64px;
   background-color: #1f2937;
   display: flex;
   justify-content: center;
