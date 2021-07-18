@@ -40,6 +40,11 @@ export default {};
   display: flex;
   align-items: center;
   flex-grow: 1;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
 
 .divider {
@@ -61,11 +66,6 @@ export default {};
   font-family: "Courier New", Courier, monospace;
   line-height: 0.2;
 
-  &:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-
   @media (max-width: 800px) {
     display: none;
   }
@@ -85,7 +85,7 @@ export default {};
     background-color: rgba(55, 65, 81);
     cursor: pointer;
   }
-  &--active {
+  &.router-link-active {
     color: #ffffff;
   }
 }

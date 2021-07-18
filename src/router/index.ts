@@ -1,19 +1,22 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/FormView.vue'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
+    redirect: { name: 'form' }
+  },
+  {
+    path: '/form',
     name: 'form',
-    component: Home
+    component: () => import(/* webpackChunkName: "form" */ '../views/FormView.vue')
   },
   {
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProfileView.vue')
+    component: () => import(/* webpackChunkName: "profile" */ '../views/ProfileView.vue')
   }
 ]
 
