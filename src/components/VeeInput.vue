@@ -11,11 +11,12 @@
   </ValidationProvider>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { ValidationProvider } from "vee-validate";
 import { Input, FieldGroup } from "@spartez/vue-atlaskit";
 
-export default {
+export default Vue.extend({
   components: {
     ValidationProvider,
     Input,
@@ -38,7 +39,7 @@ export default {
       type: String,
     },
     value: {
-      type: null,
+      type: String,
     },
   },
   data: () => ({
@@ -57,5 +58,5 @@ export default {
       this.innerValue = this.value;
     }
   },
-};
+});
 </script>

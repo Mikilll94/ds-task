@@ -7,19 +7,19 @@
   </div>
 </template>
 
-<style>
-</style>
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import Navbar from "@/layout/Navbar.vue";
 import AppFooter from "@/layout/AppFooter.vue";
 
-export default {
+export default Vue.extend({
   components: {
     Navbar,
     AppFooter,
   },
-};
+});
 </script>
+
 <style lang="scss" scoped>
 .page-container {
   display: flex;

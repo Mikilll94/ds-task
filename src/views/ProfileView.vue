@@ -32,24 +32,26 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { Avatar, DateRenderer } from "@spartez/vue-atlaskit";
 import { UserService } from "@/services/UserService";
+import { User } from "@/models/User";
 
-export default {
+export default Vue.extend({
   components: {
     Avatar,
     DateRenderer,
   },
   data() {
     return {
-      user: null,
+      user: null as User | null,
     };
   },
   created() {
     this.user = UserService.getUserData();
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

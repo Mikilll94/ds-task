@@ -70,7 +70,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { ValidationObserver, ValidationProvider } from "vee-validate";
 import VeeInput from "@/components/VeeInput.vue";
 import {
@@ -83,7 +84,7 @@ import {
 } from "@spartez/vue-atlaskit";
 import { UserService } from "@/services/UserService";
 
-export default {
+export default Vue.extend({
   components: {
     ValidationObserver,
     ValidationProvider,
@@ -98,7 +99,7 @@ export default {
   data() {
     return {
       user: {
-        avatar: null,
+        avatar: null as string | null,
         firstName: "",
         lastName: "",
         email: "",
@@ -113,14 +114,14 @@ export default {
   },
   methods: {
     changeAvatar() {
-      this.$refs.fileInput.click();
+      (this.$refs.fileInput as HTMLInputElement).click();
     },
-    changeFile(event) {
-      const file = event.target.files[0];
+    changeFile(event: Event) {
+      const file = (event.target as any).files[0];
       this.user.avatar = URL.createObjectURL(file);
     },
     async submitForm() {
-      const isValid = await this.$refs.observer.validate();
+      const isValid = await (this.$refs.observer as InstanceType<typeof ValidationObserver>).validate();
       if (!isValid) {
         return;
       }
@@ -128,7 +129,8 @@ export default {
       this.$router.push({ name: "profile" });
     },
   },
-};
+});
+
 </script>
 <style lang="scss" scoped>
 .root {
