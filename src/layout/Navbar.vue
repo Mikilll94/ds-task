@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <div class="nav-logo">
+    <div class="nav-logo" @click="$router.push('/')">
       <img
         :src="require('@/assets/calendar-text-outline.png')"
         class="nav-logo-icon"
