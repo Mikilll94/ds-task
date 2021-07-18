@@ -1,44 +1,53 @@
 <template>
   <div class="root">
-    <Avatar class="avatar" :avatar="null" size="xxlarge" />
-    <h3 class="username">Mikołaj Waśniewski</h3>
-    <div class="profile-section">
-      <div class="profile-info">
-        <h5>Email:</h5>
-        <p>test@gmail.com</p>
+    <template v-if="user">
+      <Avatar class="avatar" :avatar="user.avatar" size="xxlarge" />
+      <h3 class="username">{{ `${user.firstName} ${user.lastName}` }}</h3>
+      <div class="profile-section">
+        <div class="profile-info">
+          <h5>Email:</h5>
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="profile-info">
+          <h5>Phone:</h5>
+          <p>{{ user.phone }}</p>
+        </div>
+        <div class="profile-info">
+          <h5>Birthday:</h5>
+          <p>
+            <DateRenderer :date="user.dateOfBirth" />
+          </p>
+        </div>
+        <div class="profile-info">
+          <h5>About:</h5>
+          <p>
+            {{ user.aboutInfo }}
+          </p>
+        </div>
       </div>
-      <div class="profile-info">
-        <h5>Phone:</h5>
-        <p>+48 123 456 789</p>
-      </div>
-      <div class="profile-info">
-        <h5>Birthday:</h5>
-        <p>12.01.1979</p>
-      </div>
-      <div class="profile-info">
-        <h5>About:</h5>
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
-      </div>
-    </div>
+    </template>
+    <template v-else>
+      <h2 class="no-user-data-banner">You have not submitted any user data</h2>
+    </template>
   </div>
 </template>
 
 <script>
-import { Avatar } from "@spartez/vue-atlaskit";
+import { Avatar, DateRenderer } from "@spartez/vue-atlaskit";
+import { UserService } from "@/services/UserService";
 
 export default {
   components: {
     Avatar,
+    DateRenderer,
+  },
+  data() {
+    return {
+      user: null,
+    };
+  },
+  created() {
+    this.user = UserService.getUserData();
   },
 };
 </script>
@@ -58,6 +67,10 @@ export default {
   @media (min-width: 1264px) {
     width: 50%;
   }
+}
+
+.no-user-data-banner {
+  margin-top: 24px;
 }
 
 .username {

@@ -2,7 +2,7 @@
   <div class="root">
     <form @submit.prevent="submitForm">
       <div class="avatar-section">
-        <Avatar class="avatar" :avatar="avatar" size="xxlarge" />
+        <Avatar class="avatar" :avatar="user.avatar" size="xxlarge" />
         <Button appearance="link" @click="changeAvatar">
           <template v-slot:icon-before>
             <EditorEditIcon />
@@ -10,45 +10,40 @@
           Upload new image
         </Button>
       </div>
-      <input ref="fileInput" type="file" class="d-none" @change="changeFile" />
+      <input
+        ref="fileInput"
+        type="file"
+        class="d-none"
+        @change="changeFile"
+        accept="image/png, image/jpeg"
+      />
       <div class="form">
         <FieldGroup label="First name" required>
-          <Input v-model="firstName" should-fit-container />
+          <Input v-model="user.firstName" should-fit-container />
         </FieldGroup>
         <FieldGroup label="Last name" required>
-          <Input
-            v-model="lastName"
-            type="number"
-            min="1"
-            max="3"
-            allowed-values="[^0-9\.]"
-            should-fit-container
-          />
+          <Input v-model="user.lastName" should-fit-container />
         </FieldGroup>
         <FieldGroup label="Email" required>
-          <Input
-            v-model="email"
-            type="number"
-            min="1"
-            max="3"
-            allowed-values="[^0-9\.]"
-            should-fit-container
-          />
+          <Input v-model="user.email" should-fit-container />
         </FieldGroup>
         <FieldGroup label="Phone" required>
           <Input
-            v-model="phone"
+            v-model="user.phone"
             type="tel"
             allowed-values="[^0-9+]"
             should-fit-container
           />
         </FieldGroup>
         <FieldGroup label="Birthday" required>
-          <DatePicker v-model="dateOfBirth" :disabled-range="noFutureRange" />
+          <DatePicker
+            v-model="user.dateOfBirth"
+            :disabled-range="noFutureRange"
+          />
         </FieldGroup>
       </div>
       <FieldGroup label="About" required>
-        <TextArea rows="5" v-model="aboutInfo" />
+        <TextArea rows="5" v-model="user.aboutInfo" />
       </FieldGroup>
       <Button class="submitButton" type="submit" appearance="primary">
         Submit form
@@ -67,6 +62,7 @@ import {
   DatePicker,
   EditorEditIcon,
 } from "@spartez/vue-atlaskit";
+import { UserService } from "@/services/UserService";
 
 export default {
   name: "InputStory",
@@ -81,13 +77,15 @@ export default {
   },
   data() {
     return {
-      avatar: null,
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      dateOfBirth: "",
-      aboutInfo: "",
+      user: {
+        avatar: null,
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        dateOfBirth: "",
+        aboutInfo: "",
+      },
       noFutureRange: {
         from: new Date(),
       },
@@ -99,10 +97,11 @@ export default {
     },
     changeFile(event) {
       const file = event.target.files[0];
-      this.avatar = URL.createObjectURL(file);
+      this.user.avatar = URL.createObjectURL(file);
     },
     submitForm() {
-      console.log("lalala");
+      UserService.saveUserData(this.user);
+      this.$router.push({ name: "profile" });
     },
   },
 };
