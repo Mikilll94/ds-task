@@ -52,7 +52,7 @@ export default {};
   margin-right: 32px;
   width: 1px;
   height: 35px;
-  background-color: white;
+  background-color: #bec3cb;
 
   @media (max-width: 480px) {
     margin-left: 16px;
@@ -74,6 +74,7 @@ export default {};
 .nav-items {
   position: absolute;
   display: flex;
+  align-items: center;
 }
 
 .nav-item {
