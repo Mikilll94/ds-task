@@ -134,7 +134,7 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .root {
-  padding: 16px 8px 0 8px;
+  padding: 16px 16px 0 16px;
 
   @media (min-width: 960px) {
     margin: 0 auto;
