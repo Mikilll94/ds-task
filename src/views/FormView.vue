@@ -10,6 +10,7 @@
             </template>
             Upload new image
           </Button>
+          <div class="avatar-error">{{ avatarError }}</div>
         </div>
         <input
           ref="fileInput"
@@ -110,6 +111,7 @@ export default Vue.extend({
       noFutureRange: {
         from: new Date(),
       },
+      avatarError: null as string | null,
     };
   },
   methods: {
@@ -118,6 +120,18 @@ export default Vue.extend({
     },
     changeFile(event: Event) {
       const file = (event.target as any).files[0];
+
+      if (!file.name.match(/.(jpg|jpeg|png)$/i)) {
+        this.avatarError = "Please upload jpg, jpeg or png file.";
+        return;
+      }
+
+      if ((file.size / 1024 / 1024) > 1) {
+        this.avatarError = "Image size exceeds 1 MB";
+        return;
+      }
+
+      this.avatarError = null;
       this.user.avatar = URL.createObjectURL(file);
     },
     async submitForm() {
@@ -153,8 +167,13 @@ export default Vue.extend({
   align-items: center;
 }
 
+.avatar-error {
+  min-height: 20px;
+  color: #de350b;
+}
+
 .form {
-  margin-top: 15px;
+  margin-top: 5px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 90px 90px 90px 90px 90px;
