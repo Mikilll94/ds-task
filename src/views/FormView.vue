@@ -43,7 +43,7 @@
             name="phone"
             label="Phone"
             type="tel"
-            allowed-values="[^0-9+]"
+            allowed-values="[^0-9+ ]"
             rules="required"
           />
           <ValidationProvider
