@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router';
+import FormView from '@/views/FormView.vue';
+import ProfileView from '@/views/ProfileView.vue';
 
 Vue.use(VueRouter)
 
@@ -11,12 +13,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/form',
     name: 'form',
-    component: () => import(/* webpackChunkName: "form" */ '../views/FormView.vue')
+    component: FormView
   },
   {
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "profile" */ '../views/ProfileView.vue')
+    component: ProfileView
   }
 ]
 

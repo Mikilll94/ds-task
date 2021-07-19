@@ -2,15 +2,23 @@
   <nav class="nav">
     <div class="nav-logo" @click="$router.push('/')">
       <img
-        :src="require('@/assets/calendar-text-outline.png')"
+        srcset="
+          @/assets/calendar-text-outline@48x48.png,
+          @/assets/calendar-text-outline@64x64.png 1.5x,
+          @/assets/calendar-text-outline@96x96.png 2x
+        "
+        src="@/assets/calendar-text-outline@96x96.png"
         class="nav-logo-icon"
+        alt="notebook"
       />
       <div class="nav-logo-title">DS-TASK</div>
     </div>
     <div class="nav-items">
       <router-link :to="{ name: 'form' }" class="nav-item">Submit</router-link>
       <div class="divider" />
-      <router-link :to="{ name: 'profile' }" class="nav-item">Profile</router-link>
+      <router-link :to="{ name: 'profile' }" class="nav-item">
+        Profile
+      </router-link>
     </div>
   </nav>
 </template>
@@ -34,6 +42,11 @@ export default {};
   .nav {
     padding: 0 16px;
   }
+}
+
+.nav-logo-icon {
+  width: 48px;
+  height: 48px;
 }
 
 .nav-logo {

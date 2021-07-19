@@ -6,6 +6,7 @@
         should-fit-container
         :type="type"
         :allowed-values="allowedValues"
+        :aria-label="$attrs.label"
       />
     </FieldGroup>
   </ValidationProvider>

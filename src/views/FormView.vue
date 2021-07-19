@@ -1,5 +1,5 @@
 <template>
-  <div class="root">
+  <main class="root">
     <form @submit.prevent="submitForm">
       <ValidationObserver ref="observer">
         <div class="avatar-section">
@@ -60,14 +60,14 @@
           </ValidationProvider>
         </div>
         <FieldGroup v-model="user.aboutInfo" label="About (optional)">
-          <TextArea rows="5" v-model="user.aboutInfo" />
+          <TextArea v-model="user.aboutInfo" rows="5" aria-label="About (optional)" />
         </FieldGroup>
         <Button class="submitButton" type="submit" appearance="primary">
           Submit form
         </Button>
       </ValidationObserver>
     </form>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">

@@ -1,5 +1,5 @@
 <template>
-  <div class="root">
+  <main class="root">
     <template v-if="user">
       <Avatar class="avatar" :avatar="user.avatar" size="xxlarge" />
       <h3 class="username">{{ `${user.firstName} ${user.lastName}` }}</h3>
@@ -29,7 +29,7 @@
     <template v-else>
       <h2 class="no-user-data-banner">You have not submitted any user data</h2>
     </template>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
