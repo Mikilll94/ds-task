@@ -29,10 +29,10 @@ export default Vue.extend({});
   background-color: #1f2937;
   color: #fff8f8;
   margin-top: auto;
-  padding: 32px 64px;
+  padding: 32px 16px;
 
-  @media (max-width: 1263px) {
-    padding: 32px 16px;
+  @media (min-width: $big) {
+    padding: 32px 64px;
   }
 }
 </style>

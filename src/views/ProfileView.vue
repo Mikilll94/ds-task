@@ -62,11 +62,11 @@ export default Vue.extend({
   margin: 0 auto;
   padding: 16px 16px 0 16px;
 
-  @media (min-width: 960px) {
+  @media (min-width: $medium) {
     width: 75%;
   }
 
-  @media (min-width: 1264px) {
+  @media (min-width: $big) {
     width: 50%;
   }
 }

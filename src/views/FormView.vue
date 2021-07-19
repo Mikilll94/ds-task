@@ -150,12 +150,12 @@ export default Vue.extend({
 .root {
   padding: 16px 16px 0 16px;
 
-  @media (min-width: 960px) {
+  @media (min-width: $medium) {
     margin: 0 auto;
     width: 75%;
   }
 
-  @media (min-width: 1264px) {
+  @media (min-width: $big) {
     margin: 0 auto;
     width: 50%;
   }
@@ -178,7 +178,7 @@ export default Vue.extend({
   grid-template-columns: 1fr;
   grid-template-rows: 90px 90px 90px 90px 90px;
 
-  @media (min-width: 600px) {
+  @media (min-width: $extra-small) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 90px 90px 90px;

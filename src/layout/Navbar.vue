@@ -35,10 +35,10 @@ export default {};
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 0 64px;
+  padding: 0 16px;
 
-  @media (max-width: 1263px) {
-    padding: 0 16px;
+  @media (min-width: $big) {
+    padding: 0 64px;
   }
 }
 
@@ -59,26 +59,27 @@ export default {};
 }
 
 .divider {
-  margin-left: 32px;
-  margin-right: 32px;
+  margin-left: 16px;
+  margin-right: 16px;
   width: 1px;
   height: 35px;
   background-color: #bec3cb;
 
-  @media (max-width: 480px) {
-    margin-left: 16px;
-    margin-right: 16px;
+  @media (min-width: $tiny) {
+    margin-left: 32px;
+    margin-right: 32px;
   }
 }
 
 .nav-logo-title {
+  display: none;
   margin-left: 5px;
   font-size: 36px;
   font-family: "Courier New", Courier, monospace;
   line-height: 0.2;
 
-  @media (max-width: 800px) {
-    display: none;
+  @media (min-width: $small) {
+    display: initial;
   }
 }
 
