@@ -61,7 +61,11 @@
           </ValidationProvider>
         </div>
         <FieldGroup v-model="user.aboutInfo" label="About (optional)">
-          <TextArea v-model="user.aboutInfo" rows="5" aria-label="About (optional)" />
+          <TextArea
+            v-model="user.aboutInfo"
+            rows="5"
+            aria-label="About (optional)"
+          />
         </FieldGroup>
         <Button class="submitButton" type="submit" appearance="primary">
           Submit form
@@ -126,7 +130,7 @@ export default Vue.extend({
         return;
       }
 
-      if ((file.size / 1024 / 1024) > 2) {
+      if (file.size / 1024 / 1024 > 2) {
         this.avatarError = "Image size exceeds 2 MB";
         return;
       }
@@ -135,16 +139,24 @@ export default Vue.extend({
       this.user.avatar = URL.createObjectURL(file);
     },
     async submitForm() {
-      const isValid = await (this.$refs.observer as InstanceType<typeof ValidationObserver>).validate();
+      const validationObserver = this.$refs.observer as InstanceType<typeof ValidationObserver>;
+      const isValid = await validationObserver.validate();
+
+      const firstErrorElement = this.$el.querySelector(".error-message");
       if (!isValid) {
+        firstErrorElement?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
         return;
       }
+
       UserService.saveUserData(this.user);
       this.$router.push({ name: "profile" });
     },
   },
 });
-
 </script>
 <style lang="scss" scoped>
 .root {

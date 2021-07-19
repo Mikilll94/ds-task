@@ -19,7 +19,7 @@ npm run serve
 - Project was created using vue-cli, which is a standard way of creating Vue projects.
 - CSS Flexbox and CSS Grid for laying out content.
 - TypeScript is used to provide typechecking and better IDE support.
-- vee-validate is used as to make form validation easier. IMO this is the best form validation library in Vue ecosystem.
+- vee-validate is used to make form validation easier. IMO this is the best form validation library in Vue ecosystem.
 - SCSS is used instead of plain CSS. This allows nesting CSS rules and creating SASS variables.
 - Netlify is used as hosting provider because it is free and very easy to use.
 
@@ -33,8 +33,9 @@ npm run serve
 
 ### Other comments
 - Form is validated on submit, field change and field unfocus.
+- When clicking "Submit" and validation fails, then the view is scrolled to the first error.
 - Avatar image is not required.
 - Avatar image must be jpg, jpeg or png file.
-- Avatar image cannot have size bigger than 1MB.
+- Avatar image cannot have size bigger than 2MB.
 - "About" field is not required.
 - "Phone" field only accepts digits, spaces and "+" character
