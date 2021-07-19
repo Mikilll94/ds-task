@@ -1,6 +1,6 @@
 # ds-task
 
-Project is available publicly here: https://ds-task123.netlify.app/form
+Project is available publicly here: https://ds-task123.netlify.app
 
 ### Run project locally
 ```

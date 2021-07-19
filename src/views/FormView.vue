@@ -126,8 +126,8 @@ export default Vue.extend({
         return;
       }
 
-      if ((file.size / 1024 / 1024) > 1) {
-        this.avatarError = "Image size exceeds 1 MB";
+      if ((file.size / 1024 / 1024) > 2) {
+        this.avatarError = "Image size exceeds 2 MB";
         return;
       }
 
