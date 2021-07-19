@@ -18,17 +18,17 @@ npm run serve
 ### Applied techniques
 - Project was created using vue-cli, which is a standard way of creating Vue projects.
 - CSS Flexbox and CSS Grid for laying out content.
-- TypeScript is used to provide typechecking and better IDE support.
+- TypeScript is used to provide type checking and better IDE support.
 - vee-validate is used to make form validation easier. IMO this is the best form validation library in Vue ecosystem.
 - SCSS is used instead of plain CSS. This allows nesting CSS rules and creating SASS variables.
-- Netlify is used as hosting provider because it is free and very easy to use.
+- Netlify is used as a hosting provider because it is free and very easy to use.
 
 ### Alternative solutions
 - Scaffold project using Nuxt.js instead of vue-cli. This would result in better SEO.
 - Write form validation by yourself instead of using vee-validate. This would result in more boilerplate in code.
 - Do not use vue-atlaskit. Instead create controls from scratch. This would be much more time-consuming (i.e. date control could be very hard).
-- Create different navbar layout.
-- Use React instead instead of Vue. I was thinking about this but eventually I sticked to Vue.
+- Create a different navbar layout.
+- Use React instead of Vue. I was thinking about this but eventually I sticked to Vue.
 - Create hamburger menu on mobiles. This would be necessary only if we have more navigation links.
 
 ### Other comments
@@ -36,6 +36,6 @@ npm run serve
 - When clicking "Submit" and validation fails, then the view is scrolled to the first error.
 - Avatar image is not required.
 - Avatar image must be jpg, jpeg or png file.
-- Avatar image cannot have size bigger than 2MB.
+- Avatar image cannot have a size bigger than 2MB.
 - "About" field is not required.
 - "Phone" field only accepts digits, spaces and "+" character
