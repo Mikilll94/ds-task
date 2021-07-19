@@ -2,24 +2,24 @@
   <main class="root">
     <template v-if="user">
       <Avatar class="avatar" :avatar="user.avatar" size="xxlarge" />
-      <h3 class="username">{{ `${user.firstName} ${user.lastName}` }}</h3>
+      <h1 class="username">{{ `${user.firstName} ${user.lastName}` }}</h1>
       <section class="profile-section">
         <div class="profile-info">
-          <h5>Email:</h5>
+          <h2 class="data-header">Email:</h2>
           <p>{{ user.email }}</p>
         </div>
         <div class="profile-info">
-          <h5>Phone:</h5>
+          <h2 class="data-header">Phone:</h2>
           <p>{{ user.phone }}</p>
         </div>
         <div class="profile-info">
-          <h5>Birthday:</h5>
+          <h2 class="data-header">Birthday:</h2>
           <p>
             <DateRenderer :date="user.dateOfBirth" />
           </p>
         </div>
         <div v-if="user.aboutInfo" class="profile-info">
-          <h5>About:</h5>
+          <h2 class="data-header">About:</h2>
           <p>
             {{ user.aboutInfo }}
           </p>
@@ -76,8 +76,13 @@ export default Vue.extend({
 }
 
 .username {
+  font-size: 1.43em;
   margin-top: 8px;
   margin-bottom: 32px;
+}
+
+.data-header {
+  font-size: 1em;
 }
 
 .profile-section {
