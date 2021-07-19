@@ -27,7 +27,7 @@
       </section>
     </template>
     <template v-else>
-      <h2 class="no-user-data-banner">You have not submitted any user data</h2>
+      <h1 class="no-user-data-banner">You have not submitted any user data</h1>
     </template>
   </main>
 </template>
@@ -73,6 +73,7 @@ export default Vue.extend({
 
 .no-user-data-banner {
   margin-top: 24px;
+  font-size: 1.715em;
 }
 
 .username {
