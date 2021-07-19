@@ -3,7 +3,7 @@
     <template v-if="user">
       <Avatar class="avatar" :avatar="user.avatar" size="xxlarge" />
       <h3 class="username">{{ `${user.firstName} ${user.lastName}` }}</h3>
-      <div class="profile-section">
+      <section class="profile-section">
         <div class="profile-info">
           <h5>Email:</h5>
           <p>{{ user.email }}</p>
@@ -24,7 +24,7 @@
             {{ user.aboutInfo }}
           </p>
         </div>
-      </div>
+      </section>
     </template>
     <template v-else>
       <h2 class="no-user-data-banner">You have not submitted any user data</h2>

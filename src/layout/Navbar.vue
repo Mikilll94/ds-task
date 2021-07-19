@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <header class="root">
     <div class="nav-logo" @click="$router.push('/')">
       <img
         srcset="
@@ -13,14 +13,14 @@
       />
       <div class="nav-logo-title">DS-TASK</div>
     </div>
-    <div class="nav-items">
+    <nav class="nav-items">
       <router-link :to="{ name: 'form' }" class="nav-item">Submit</router-link>
       <div class="divider" />
       <router-link :to="{ name: 'profile' }" class="nav-item">
         Profile
       </router-link>
-    </div>
-  </nav>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {};
 </script>
 
 <style scoped lang="scss">
-.nav {
+.root {
   min-height: 64px;
   background-color: #1f2937;
   display: flex;
@@ -36,10 +36,8 @@ export default {};
   align-items: center;
   color: white;
   padding: 0 64px;
-}
 
-@media (max-width: 1263px) {
-  .nav {
+  @media (max-width: 1263px) {
     padding: 0 16px;
   }
 }

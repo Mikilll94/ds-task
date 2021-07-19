@@ -2,7 +2,7 @@
   <main class="root">
     <form @submit.prevent="submitForm">
       <ValidationObserver ref="observer">
-        <div class="avatar-section">
+        <section class="avatar-section">
           <Avatar class="avatar" :avatar="user.avatar" size="xxlarge" />
           <Button appearance="link" @click="changeAvatar">
             <template v-slot:icon-before>
@@ -11,7 +11,7 @@
             Upload new image
           </Button>
           <div class="avatar-error">{{ avatarError }}</div>
-        </div>
+        </section>
         <input
           ref="fileInput"
           type="file"
