@@ -38,14 +38,18 @@ import { Avatar, DateRenderer } from "@spartez/vue-atlaskit";
 import { UserService } from "@/services/UserService";
 import { User } from "@/models/User";
 
+interface ComponentData {
+  user: User | null;
+}
+
 export default Vue.extend({
   components: {
     Avatar,
     DateRenderer,
   },
-  data() {
+  data(): ComponentData {
     return {
-      user: null as User | null,
+      user: null,
     };
   },
   created() {

@@ -88,6 +88,13 @@ import {
   EditorEditIcon,
 } from "@spartez/vue-atlaskit";
 import { UserService } from "@/services/UserService";
+import { User } from "@/models/User";
+
+interface ComponentData {
+  user: User;
+  noFutureRange: { from: Date };
+  avatarError: string | null
+}
 
 export default Vue.extend({
   components: {
@@ -101,10 +108,10 @@ export default Vue.extend({
     DatePicker,
     EditorEditIcon,
   },
-  data() {
+  data(): ComponentData {
     return {
       user: {
-        avatar: null as string | null,
+        avatar: null,
         firstName: "",
         lastName: "",
         email: "",
@@ -115,7 +122,7 @@ export default Vue.extend({
       noFutureRange: {
         from: new Date(),
       },
-      avatarError: null as string | null,
+      avatarError: null,
     };
   },
   methods: {
