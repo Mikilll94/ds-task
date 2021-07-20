@@ -88,6 +88,7 @@ export default Vue.extend({
 
 .data-header {
   font-size: 1em;
+  font-weight: 600;
 }
 
 .profile-section {
