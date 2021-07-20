@@ -9,33 +9,35 @@ npm run serve
 ```
 
 ### Assumptions
-- Website works on all modern browsers. IE is not supported.
-- Website is fully responsive. It works on mobile, tablet and desktop.
+- Website should work on all modern browsers. IE is not supported.
+- Website is fully responsive. It should work on mobile, tablet and desktop.
 - vue-atlaskit is used as a UI library.
 - Website scores high on Google Lighthouse.
 - Website is a SPA without Server Side Rendering.
+- Submitted data is saved in the Session Storage. In UserService.ts file, you can easily change this to connect to an existing API.
 
 ### Applied techniques
 - Project was created using vue-cli, which is a standard way of creating Vue projects.
-- CSS Flexbox and CSS Grid for laying out content.
+- vue-router is used to provide client-side navigation
+- CSS Flexbox and CSS Grid are used for laying out content.
 - TypeScript is used to provide type checking and better IDE support.
-- vee-validate is used to make form validation easier. IMO this is the best form validation library in Vue ecosystem.
-- SCSS is used instead of plain CSS. This allows nesting CSS rules and creating SASS variables.
-- Netlify is used as a hosting provider because it is free and very easy to use.
+- vee-validate library is used to make form validation easier.
+- SCSS is used instead of plain CSS. This allows nesting CSS rules and creating variables.
 
 ### Alternative solutions
 - Scaffold project using Nuxt.js instead of vue-cli. This would result in better SEO.
-- Write form validation by yourself instead of using vee-validate. This would result in more boilerplate in code.
-- Do not use vue-atlaskit. Instead create controls from scratch. This would be much more time-consuming (i.e. date control could be very hard).
+- Write form validation by yourself instead of using vee-validate. This would be more time-consuming and it would produce more boilerplate.
+- Do not use vue-atlaskit. Instead create controls from scratch. This would be more time-consuming (especially for date control).
 - Create a different navbar layout.
-- Use React instead of Vue. I was thinking about this but eventually I sticked to Vue.
-- Create hamburger menu on mobiles. This would be necessary only if we have more navigation links.
+- Use React instead of Vue.
+- Create hamburger menu on mobiles. This would be necessary only if we would have more navigation links than two.
 
 ### Other comments
-- Form is validated on submit, field change and field unfocus.
-- When clicking "Submit" and validation fails, then the view is scrolled to the first error.
+- When there is enough space in the viewport, the footer stays at the bottom of the screen. When there is no space in the viewport, the footer stays after the content.
+- Form is validated on submit, input change and input unfocus.
+- When clicking "Submit" and there is an error, the page is scrolled to the first one.
 - Avatar image is not required.
 - Avatar image must be jpg, jpeg or png file.
-- Avatar image cannot have a size bigger than 2MB.
+- Avatar image cannot have bigger size than 2MB.
 - "About" field is not required.
-- "Phone" field only accepts digits, spaces and "+" character
+- "Phone" field accepts only digits, spaces and "+" character.
