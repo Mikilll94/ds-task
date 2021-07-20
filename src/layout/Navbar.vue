@@ -1,6 +1,6 @@
 <template>
   <header class="root">
-    <div class="nav-logo" @click="$router.push('/')">
+    <router-link to="/" class="nav-logo">
       <img
         srcset="
           @/assets/calendar-text-outline@48x48.png,
@@ -12,7 +12,7 @@
         alt="notebook"
       />
       <div class="nav-logo-title">DS-TASK</div>
-    </div>
+    </router-link>
     <nav class="nav-items">
       <router-link :to="{ name: 'form' }" class="nav-item">Submit</router-link>
       <div class="divider" />
@@ -48,6 +48,8 @@ export default {};
 }
 
 .nav-logo {
+  color: #FFFFFF;
+  text-decoration: none;
   display: flex;
   align-items: center;
   flex-grow: 1;
