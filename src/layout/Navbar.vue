@@ -32,7 +32,7 @@ export default {};
   min-height: 64px;
   background-color: #1f2937;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: white;
   padding: 0 16px;
@@ -48,11 +48,10 @@ export default {};
 }
 
 .nav-logo {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   display: flex;
   align-items: center;
-  flex-grow: 1;
 
   &:hover {
     cursor: pointer;
@@ -89,6 +88,8 @@ export default {};
   position: absolute;
   display: flex;
   align-items: center;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .nav-item {
